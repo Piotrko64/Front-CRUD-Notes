@@ -6,7 +6,7 @@ function Header() {
     return (
     <div className="Title m-5">
       <div className="Title__main ">
-      <h1>CRUD NOTES</h1>
+      <h1>CRUD BLOG</h1>
       <h5>Front and Backend simple app by Piotrko64</h5>
       </div>
       <div className="Title__buttons mt-5">

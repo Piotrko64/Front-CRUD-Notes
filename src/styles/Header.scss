@@ -13,7 +13,7 @@
        
         font-family: 'Catamaran', sans-serif;
         font-weight: 400;
-        
+        text-align: center;
         font-size: 40px;
         transform: scale(1.5);
         
@@ -46,4 +46,21 @@ justify-content: center;
     }
     }
 }
+}
+@media (max-width: 1000px) {
+    .Title{
+    
+    .Title__buttons{
+        .textmargin{
+            margin-right: 0px;
+        }
+        button{
+            flex-direction: column;
+            margin: auto 10px;
+            height: 100px;
+            text-align: center;
+        
+        }
+    }
+    }
 }
