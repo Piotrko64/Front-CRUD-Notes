@@ -14,10 +14,10 @@
     flex-direction: column;
     margin-right: auto;
     margin-left: auto;
-    max-width: 400px;
+    max-width: 500px;
     background-color: white;
     border-radius: 15px;
-    max-height: 500px;
+    max-height: 800px;
     min-width: 300px;
     font-size: 18px;
     label{
@@ -33,6 +33,9 @@
         border-top-right-radius: 15px;
     }
     h2{
+        margin-bottom: 0;
+    }
+    h2.p-2{
         background: #6c757d;
         color: white;
         width: 100%;
@@ -41,14 +44,30 @@
        transition: all .3s ease;
         border-bottom-left-radius: 15px;
         border-bottom-right-radius: 15px;
-        margin-bottom: 0;
+        
         
     }
-    h2:hover{
+    h2.p-2:hover{
         background: #434649;
         cursor: pointer;
     }
     input[type="checkbox"]{
         margin-left: 15px;
+    }
+    textarea{
+        max-height: 400px;
+    }
+    input[type="text"] , textarea{
+        width: 210px;
+    }
+
+    .newNote__add{
+        width: 100%;
+    }
+    .spanValidation{
+        width: 100px;
+        margin-left: 20px;
+        color: red;
+        font-size: 0.8em;
     }
 }

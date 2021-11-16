@@ -2,33 +2,16 @@ import '../styles/Note.scss';
 import Note from './Note';
 import { useState } from 'react';
 
-function Notes() {
-    const notesEx = [
-        {
-            id: '44f4',
-            title: "AAAAAAPI!",
-            body: "body2",
-            important: true
-        },
-        {
-            id: '4r44',
-            title: "API!",
-            body: "body2 Minim dolore adipisicing nulla minim aliqua do velit adipisicing cillum id irure. Excepteur cillum consectetur sit minim est amet ex dolor in. Esse ad magna do exercitation laboris. In do qui est nostrud ad. Qui magna est tempor veniam deserunt Lorem labore. Eiusmod culpa ipsum sit quis exercitation consectetur proident incididunt et consectetur amet in sunt pariatur.",
-            important: false
-        },
-        {
-            id: '444555',
-            title: "API!",
-            body: "body2 Sit proident dolore tempor dolor ex est.",
-            important: false
-        }
-    ];
-    const [notes, setnotes] = useState(notesEx);
+function Notes({notesEx,setnotesEx}) {
+    
+    // const [notes, setnotes] = useState(notesEx);
    const deleteNote=(id)=>{
         console.log(id)
-       setnotes(notes.filter(note=>note.id!==id))
-        console.log(notes)
+       setnotesEx(notesEx.filter(note=>note.id!==id))
+        console.log(notesEx)
     }
+
+    
 
     
 
@@ -49,7 +32,7 @@ function Notes() {
         </div>
     </div> */}
     {
-        notes.map((note,index)=>(
+        notesEx.map((note,index)=>(
             <Note
             title={note.title}
             body={note.body}
