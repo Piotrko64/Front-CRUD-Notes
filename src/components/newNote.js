@@ -31,7 +31,9 @@ Important
   id: Math.floor(Math.random()*999)+1,
   title: title,
   body: content,
-  important: check
+  important: check,
+  like: 0,
+  comment: []
 })}
 else{
   setvalidation(true)

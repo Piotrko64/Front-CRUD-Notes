@@ -1,15 +1,37 @@
 import '../styles/Note.scss';
 import Note from './Note';
 import { useState } from 'react';
+import Modal from 'react-modal'
 
 function Notes({notesEx,setnotesEx}) {
     
+    const editNote=(id, title, body, important)=>{
+        console.log(id)
+       
+    }
     // const [notes, setnotes] = useState(notesEx);
    const deleteNote=(id)=>{
         console.log(id)
        setnotesEx(notesEx.filter(note=>note.id!==id))
         console.log(notesEx)
     }
+
+    const editNewNote=(id, title, body, important)=>{
+        console.log(id, title, body, important);
+        const copyNotes=[...notesEx];
+        const editNote=copyNotes.findIndex(copy=>copy.id===id);
+        const editNewNote = {
+            id: id,
+            title: title,
+            body: body,
+            important: important,
+            like: copyNotes[editNote].like,
+            comment: copyNotes[editNote].comment
+        };
+        copyNotes[editNote]=editNewNote;
+        console.log(copyNotes)
+        setnotesEx(copyNotes)
+        }
 
     
 
@@ -31,15 +53,21 @@ function Notes({notesEx,setnotesEx}) {
             <button type="button" class="btn btn-secondary">Delete</button>
         </div>
     </div> */}
+    
     {
         notesEx.map((note,index)=>(
             <Note
             title={note.title}
             body={note.body}
             id={note.id}
+            like={note.like}
+            comment={note.comment}
             key={note.id}
             imp={note.important}
             onDelete={(id)=> deleteNote(id)}
+            onEdit={(id, title, body, important)=>editNewNote(id, title, body, important)}
+            
+            
             />
         ))
     }
