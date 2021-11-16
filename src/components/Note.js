@@ -18,7 +18,7 @@ seteditTitle(e.target.value)
     const funEditImp=(e)=>{
       seteditImp(e.target.checked)
           }
-    console.log(props.onEdit)
+    
   return (
       <><div className="Note p-2" style={props.imp ? {borderTop: "3px solid #dc3545", borderBottom: "3px solid #dc3545"} : null}>
       <div className="Note__max-width p-1">
@@ -45,8 +45,7 @@ Important
           <button type="button" className="btn btn-primary Note__like"  onClick={()=>{setlike(!like)}}>Like {like ? <AiFillHeart/> : <AiOutlineHeart/>}{like ? props.like+1 : props.like}</button>
           <button type="button" className="btn btn-warning" >Comment</button>
           <button type="button" className="btn btn-info" onClick={()=>{
-            setedit(true);
-            console.log(edit)
+            setedit(true)
           }}>Edit</button>
           <button type="button" className="btn btn-secondary" onClick={()=>{props.onDelete(props.id)}}>Delete</button></>}
       </div>

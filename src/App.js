@@ -1,38 +1,37 @@
 import Notes from './components/Notes';
 import Header from './components/Header';
 import NewNote from './components/newNote';
-import { useState } from 'react';
+import axios from 'axios';
+import { useState, useEffect } from 'react';
 import './App.css';
 
 function App() {
-  const [isNewNote, setIsNewNote] = useState(false);
+
+
+const [isNewNote, setIsNewNote] = useState(false);
   
 const [notesEx, setnotesEx] = useState([
   {
-      id: 44,
-      title: "AAAAAAPI!",
-      body: "body2",
+      id: 999999,
+      title: "LOADING...",
+      body: "WAIT! I load a data!",
       important: true,
-      like: 1,
-      comment: ['cool','Qui ea ipsum cupidatat occaecat dolor esse sunt velit Lorem.']
+      like: 99,
+      comment: ['data','datacomm']
   },
-  {
-      id: 4,
-      title: "API!",
-      body: "body2 Minim dolore adipisicing nulla minim aliqua do velit adipisicing cillum id irure. Excepteur cillum consectetur sit minim est amet ex dolor in. Esse ad magna do exercitation laboris. In do qui est nostrud ad. Qui magna est tempor veniam deserunt Lorem labore. Eiusmod culpa ipsum sit quis exercitation consectetur proident incididunt et consectetur amet in sunt pariatur.",
-      important: false,
-      like: 2,
-      comment: ['cool','Qui ea ipsum cupidatat occaecat dolor esse sunt velit Lorem.']
-  },
-  {
-      id: 444555,
-      title: "API!",
-      body: "body2 Sit proident dolore tempor dolor ex est.",
-      important: false,
-      like: 0,
-      comment: ['cool','Qui ea ipsum cupidatat occaecat dolor esse sunt velit Lorem.']
-  }
+  
 ]);
+
+async function fetchNotes(){
+  const res = await axios.get('http://localhost:3001/api/notes');
+  const notes= res.data;
+  
+  setnotesEx(notes)
+}
+useEffect(() => {
+  fetchNotes();
+  
+});
   const showNewNote=()=>{
     setIsNewNote(true)
 }
