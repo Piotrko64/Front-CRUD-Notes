@@ -1,27 +1,28 @@
 import '../styles/Note.scss';
 import Note from './Note';
-import { useState } from 'react';
-import Modal from 'react-modal'
 
+import axios from 'axios';
 function Notes({notesEx,setnotesEx}) {
     
-    const editNote=(id, title, body, important)=>{
-        console.log(id)
-       
-    }
     // const [notes, setnotes] = useState(notesEx);
-   const deleteNote=(id)=>{
-        console.log(id)
-       setnotesEx(notesEx.filter(note=>note.id!==id))
-        console.log(notesEx)
+    async function deleteNote(_id){
+        
+        
+       setnotesEx(notesEx.filter(note=>note._id!==_id))
+        
+       const res = await axios.delete('http://localhost:3001/api/notes/'+_id);
+       const notes= res.data;
     }
 
-    const editNewNote=(id, title, body, important)=>{
-        console.log(id, title, body, important);
+    async function editNewNote(_id, title, body, important){
+        // edit back
+axios.put('http://localhost:3001/api/notes/'+_id,{title, body, important});
+        // edit front
+        console.log(_id, title, body, important);
         const copyNotes=[...notesEx];
-        const editNote=copyNotes.findIndex(copy=>copy.id===id);
+        const editNote=copyNotes.findIndex(copy=>copy._id===_id);
         const editNewNote = {
-            id: id,
+            _id: _id,
             title: title,
             body: body,
             important: important,
@@ -59,13 +60,13 @@ function Notes({notesEx,setnotesEx}) {
             <Note
             title={note.title}
             body={note.body}
-            id={note.id}
+            _id={note._id}
             like={note.like}
             comment={note.comment}
             key={note.id}
             imp={note.important}
-            onDelete={(id)=> deleteNote(id)}
-            onEdit={(id, title, body, important)=>editNewNote(id, title, body, important)}
+            onDelete={(_id)=> deleteNote(_id)}
+            onEdit={(_id, title, body, important)=>editNewNote(_id, title, body, important)}
             
             
             />

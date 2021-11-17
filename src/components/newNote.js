@@ -28,7 +28,7 @@ Important
 
 </label><br/>{validation ? <span className="spanValidation">title and content must not be too short</span> : null }<br/>
 <button className="btn btn-warning newNote__add" onClick={()=>{ if(title.length>5 && content.length>10){addNewNote({
-  id: Math.floor(Math.random()*999)+1,
+  
   title: title,
   body: content,
   important: check,

@@ -16,6 +16,7 @@ seteditTitle(e.target.value)
           }
     const [editImp, seteditImp] = useState(props.imp);
     const funEditImp=(e)=>{
+      console.log(editImp)
       seteditImp(e.target.checked)
           }
     
@@ -35,7 +36,7 @@ seteditTitle(e.target.value)
 <br/>
 <label> 
 Important 
-<input type="checkbox"  defaultChecked={editImp} onChange={(e)=>funEditImp(e)}/> </label> <br/> <br/><button className="btn btn-success" onClick={(id, title, body, important)=>{props.onEdit(props.id, editTitle, editBody, editImp); setedit(false)}}>Save</button><button className="btn btn-warning" onClick={()=>setedit(false)}>Cancel</button></>
+<input type="checkbox"  checked={editImp} onChange={(e)=>funEditImp(e)}/> </label> <br/> <br/><button className="btn btn-success" onClick={(_id, title, body, important)=>{props.onEdit(props._id, editTitle, editBody, editImp); setedit(false)}}>Save</button><button className="btn btn-warning" onClick={()=>setedit(false)}>Cancel</button></>
  : <><h2 className="">{props.title}</h2>
           <p className=""><div style={showmax ? {maxHeight: "none"} : null}>{props.body}
           {/* {!showmax && props.body.length>120 ? '...' : ''} */}
@@ -47,7 +48,7 @@ Important
           <button type="button" className="btn btn-info" onClick={()=>{
             setedit(true)
           }}>Edit</button>
-          <button type="button" className="btn btn-secondary" onClick={()=>{props.onDelete(props.id)}}>Delete</button></>}
+          <button type="button" className="btn btn-secondary" onClick={()=>{props.onDelete(props._id)}}>Delete</button></>}
       </div>
   </div>
 
