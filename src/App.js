@@ -1,8 +1,9 @@
 import Notes from './components/Notes';
 import Header from './components/Header';
 import NewNote from './components/newNote';
-import axios from 'axios';
+import axios from './axios';
 import { useState, useEffect } from 'react';
+
 import './App.css';
 
 function App() {
@@ -18,7 +19,7 @@ const [notesEx, setnotesEx] = useState([
 ]);
 
 async function fetchNotes(){
-  const res = await axios.get('http://localhost:3001/api/notes');
+  const res = await axios.get('/notes');
   const notes= res.data;
   
   await setnotesEx(notes.reverse());
@@ -38,7 +39,7 @@ async function addNewNote(ob){
   // add to BACK
   console.log(ob);
   const goodOB={title: ob.title, body: ob.title, important: ob.important}
-  const res = await axios.post(`http://localhost:3001/api/notes/`,goodOB);
+  const res = await axios.post(`/notes/`,goodOB);
   const newNote = res.data;
   // add to FRONT
   setnotesEx([newNote,...notesEx]);

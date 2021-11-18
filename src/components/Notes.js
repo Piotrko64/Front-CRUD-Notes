@@ -1,22 +1,41 @@
 import '../styles/Note.scss';
 import Note from './Note';
 
-import axios from 'axios';
+
+
+import axios from '../axios';
 function Notes({notesEx,setnotesEx}) {
     
     // const [notes, setnotes] = useState(notesEx);
     async function deleteNote(_id){
-        
-        
+       
+        await axios.delete('/notes/'+_id);
        setnotesEx(notesEx.filter(note=>note._id!==_id))
-        
-       const res = await axios.delete('http://localhost:3001/api/notes/'+_id);
-       const notes= res.data;
+       
     }
 
     async function editNewNote(_id, title, body, important){
+        console.log(title.length, 'color:red');
+        // if(title.length<=5 && body.length<=10){
+        //     NotificationManager.error('are too short', 'Title and Content');
+        //     return
+            
+            
+        // }
+        // if(title.length<=5){
+        //     NotificationManager.error('is too short', 'Title');
+        //     return
+            
+            
+        // }
+        // if(title.length<=10){
+        //     NotificationManager.error('is too short', 'Content ');
+        //     return
+            
+            
+        // }
         // edit back
-axios.put('http://localhost:3001/api/notes/'+_id,{title, body, important});
+axios.put('/notes/'+_id,{title, body, important});
         // edit front
         console.log(_id, title, body, important);
         const copyNotes=[...notesEx];
