@@ -12,9 +12,7 @@ function App() {
 const [isNewNote, setIsNewNote] = useState(false);
   
 const [notesEx, setnotesEx] = useState([
-  {
-      
-  },
+  
   
 ]);
 
@@ -38,7 +36,7 @@ const hideNewNote=()=>{
 async function addNewNote(ob){
   // add to BACK
   console.log(ob);
-  const goodOB={title: ob.title, body: ob.title, important: ob.important}
+  const goodOB={title: ob.title, body: ob.body, important: ob.important}
   const res = await axios.post(`/notes/`,goodOB);
   const newNote = res.data;
   // add to FRONT
