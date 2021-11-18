@@ -73,3 +73,8 @@
         font-size: 0.8em;
     }
 }
+@media (max-width: 1000px) {
+.newNote{
+transform: translate(-55%,-50%);
+}
+}
