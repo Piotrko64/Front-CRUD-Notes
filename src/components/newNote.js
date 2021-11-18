@@ -33,7 +33,7 @@ Important
   body: content,
   important: check,
   like: 0,
-  comment: []
+  comment: [],
 })}
 else{
   setvalidation(true)

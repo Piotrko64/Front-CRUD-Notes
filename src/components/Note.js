@@ -7,7 +7,7 @@ import {NotificationContainer, NotificationManager} from 'react-notifications';
 import 'bootstrap/dist/css/bootstrap.min.css';
 function Note(props) {
     const [showmax, setshowmax] = useState(false);
-    const [like, setlike] = useState(false);
+    const [like, setlike] = useState(props.islike);
     const [edit, setedit] = useState(false);
     let frontLike = props.like
     async function updateLike(_id){
@@ -33,8 +33,7 @@ frontLike=frontLike+1
        
       
   }
-    
-    
+  
     const [editTitle, seteditTitle] = useState(props.title);
     const funEditTitle=(e)=>{
 seteditTitle(e.target.value)
@@ -48,6 +47,13 @@ seteditTitle(e.target.value)
       console.log(editImp)
       seteditImp(e.target.checked)
           }
+          const funEdit=()=>{
+            setedit(true);
+            seteditTitle(props.title);
+            seteditBody(props.body)
+            seteditImp(props.imp)
+              }
+            
     
   return (
       <>
@@ -91,7 +97,7 @@ Important
           <button type="button" className="btn btn-primary Note__like"  onClick={()=>{updateLike(props._id);}}>Like {like ? <AiFillHeart/> : <AiOutlineHeart/>}{frontLike}</button>
           {/* <button type="button" className="btn btn-warning" >Comment</button> */}
           <button type="button" className="btn btn-info" onClick={()=>{
-            setedit(true)
+            funEdit()
           }}>Edit</button>
           <button type="button" className="btn btn-secondary" onClick={()=>{props.onDelete(props._id)}}>Delete</button></>}
       </div>

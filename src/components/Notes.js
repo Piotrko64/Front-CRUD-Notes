@@ -46,7 +46,8 @@ axios.put('/notes/'+_id,{title, body, important});
             body: body,
             important: important,
             like: copyNotes[editNote].like,
-            comment: copyNotes[editNote].comment
+            comment: copyNotes[editNote].comment,
+            islike: false
         };
         copyNotes[editNote]=editNewNote;
         console.log(copyNotes)
