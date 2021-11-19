@@ -56,18 +56,18 @@ seteditTitle(e.target.value)
       <div className="Note__max-width p-1">
       {edit ? <>
       <label> Title:  <br/>
-<input type="text" className="inputEdit" defaultValue={editTitle} onChange={(e)=>funEditTitle(e)}/>
+<input type="text" className="inputEdit" defaultValue={props.title} onChange={(e)=>funEditTitle(e)}/>
 </label>
 <br/>
 <br/>
 <label> Content:  <br/>
-<textarea className="inputEdit" defaultValue={editBody} onChange={(e)=>funEditBody(e)}/>
+<textarea className="inputEdit" defaultValue={props.body} onChange={(e)=>funEditBody(e)}/>
 </label>
 <br/>
 <br/>
 <label> 
 Important 
-<input type="checkbox"  checked={editImp} onChange={(e)=>funEditImp(e)}/> </label> <br/> <br/><button className="btn btn-success" onClick={(_id, title, body, important)=>{ 
+<input type="checkbox"  checked={props.important} onChange={(e)=>funEditImp(e)}/> </label> <br/> <br/><button className="btn btn-success" onClick={(_id, title, body, important)=>{ 
   if(editTitle.length>5 && editBody.length>10){
     props.onEdit(props._id, editTitle, editBody, editImp); setedit(false)
   }
