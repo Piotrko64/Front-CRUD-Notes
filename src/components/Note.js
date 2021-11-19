@@ -80,6 +80,9 @@ Important
   else if(editBody.length<=10){
     NotificationManager.warning('is too short', 'Content');
   }
+  else{
+    NotificationManager.succes('Everything is ok', 'Yeah!');
+  }
   
 }}>Save</button><button className="btn btn-warning" onClick={()=>setedit(false)}>Cancel</button></>
  : <><h2 className="">{props.title}</h2>

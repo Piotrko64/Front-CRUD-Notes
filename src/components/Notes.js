@@ -1,6 +1,7 @@
 import '../styles/Note.scss';
 import Note from './Note';
-
+import 'react-notifications/lib/notifications.css';
+import {NotificationContainer, NotificationManager} from 'react-notifications';
 
 
 import axios from '../axios';
@@ -10,7 +11,8 @@ function Notes({notesEx,setnotesEx}) {
     async function deleteNote(_id){
        
         await axios.delete('/notes/'+_id);
-       setnotesEx(notesEx.filter(note=>note._id!==_id))
+       setnotesEx(notesEx.filter(note=>note._id!==_id));
+       NotificationManager.info('', 'Note is delete');
        
     }
 
@@ -73,6 +75,7 @@ axios.put('/notes/'+_id,{title, body, important});
             <button type="button" class="btn btn-secondary">Delete</button>
         </div>
     </div> */}
+    <NotificationContainer/>
     
     {
         notesEx.map((note,index)=>(
