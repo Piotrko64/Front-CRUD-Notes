@@ -36,7 +36,7 @@ useEffect(() => {
     
   },3000)
   
-});
+},[]);
   const showNewNote=()=>{
     setIsNewNote(true)
 }
