@@ -6,7 +6,7 @@ import 'react-notifications/lib/notifications.css';
 import {NotificationContainer, NotificationManager} from 'react-notifications';
 import 'bootstrap/dist/css/bootstrap.min.css';
 function Note(props) {
-    const [showmax, setshowmax] = useState(false);
+    const [showmax] = useState(false);
     const [like, setlike] = useState(false);
     const [edit, setedit] = useState(false);
     let frontLike = props.like
@@ -24,7 +24,7 @@ function Note(props) {
               
       setlike(!like);
       await axios.put('/notes/like/'+_id+"/"+equal);
-      if(equal=='plus'){
+      if(equal==='plus'){
 frontLike=frontLike+1
       }
       else{

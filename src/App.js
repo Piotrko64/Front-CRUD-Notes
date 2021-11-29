@@ -3,6 +3,7 @@ import Header from './components/Header';
 import NewNote from './components/newNote';
 import axios from './axios';
 import { useState, useEffect } from 'react';
+import {NotificationContainer, NotificationManager} from 'react-notifications';
 
 import './App.css';
 
@@ -21,10 +22,19 @@ async function fetchNotes(){
   const notes= res.data;
   
   await setnotesEx(notes.reverse());
+  console.log(notesEx)
+  
   
 }
+
 useEffect(() => {
   fetchNotes();
+  setTimeout(()=>{
+    if(notesEx.length===0){
+      fetchNotes()
+    }
+    
+  },3000)
   
 });
   const showNewNote=()=>{
@@ -41,13 +51,16 @@ async function addNewNote(ob){
   const newNote = res.data;
   // add to FRONT
   setnotesEx([newNote,...notesEx]);
-  setIsNewNote(false)
+  setIsNewNote(false);
+  NotificationManager.success('', 'Note is add');
+
 
 }
 
 
   return (
     <>
+    <NotificationContainer/>
     <Header  showNewNote={()=>{showNewNote()}}/>
     <Notes notesEx={notesEx} setnotesEx={setnotesEx} />
     {isNewNote ? <NewNote hideNewNote={()=>{hideNewNote()}} addNewNote={(ob)=>{addNewNote(ob)}}/> : null}
