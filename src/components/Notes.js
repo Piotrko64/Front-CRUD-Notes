@@ -77,7 +77,7 @@ axios.put('/notes/'+_id,{title, body, important});
     </div> */}
     <NotificationContainer/>
     
-    {
+    { notesEx.length!==0 ? 
         notesEx.map((note,index)=>(
             <Note
             title={note.title}
@@ -92,7 +92,7 @@ axios.put('/notes/'+_id,{title, body, important});
             
             
             />
-        ))
+        )) : <div style={{color: "white", textAlign:"center", fontSize:"2em"}}>Please wait!</div>
     }
     </>
   );

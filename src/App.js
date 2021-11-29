@@ -22,7 +22,7 @@ async function fetchNotes(){
   const notes= res.data;
   
   await setnotesEx(notes.reverse());
-  console.log(notesEx)
+  console.log('wait!')
   
   
 }
