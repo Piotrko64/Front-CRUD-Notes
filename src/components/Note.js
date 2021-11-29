@@ -91,7 +91,7 @@ Important
           </div>
          {/* <span onClick={()=>{setshowmax(!showmax)}}>{showmax ? 'Hide' : 'Read all'}</span>*/}
          </p> 
-          <button type="button" className="btn btn-primary Note__like"  onClick={()=>{updateLike(props._id);}}>Like {like ? <AiFillHeart/> : <AiOutlineHeart/>}{frontLike}</button>
+          <button type="button" className="btn btn-primary Note__like"  onClick={()=>{updateLike(props._id);}}>Like {like ? <AiFillHeart/> : <AiOutlineHeart/>}{like ? frontLike+1 : frontLike}</button>
           {/* <button type="button" className="btn btn-warning" >Comment</button> */}
           <button type="button" className="btn btn-info" onClick={()=>{
             setedit(true)

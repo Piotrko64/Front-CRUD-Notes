@@ -29,14 +29,9 @@ async function fetchNotes(){
 
 useEffect(() => {
   fetchNotes();
-  setTimeout(()=>{
-    if(notesEx.length===0){
-      fetchNotes()
-    }
-    
-  },3000)
-  
-},[]);
+},[notesEx.length]);
+
+
   const showNewNote=()=>{
     setIsNewNote(true)
 }
