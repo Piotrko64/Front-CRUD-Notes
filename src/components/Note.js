@@ -94,7 +94,7 @@ Important
           <button type="button" className="btn btn-info" onClick={()=>{
             setedit(true)
           }}>Edit</button>
-          <button type="button" className="btn btn-secondary" onClick={()=>{props.onDelete(props._id)}}>Delete</button></>}
+          <button type="button" className="btn btn-secondary btn-delete" onClick={()=>{props.onDelete(props._id)}}>Delete</button></>}
       </div>
   </div>
   
