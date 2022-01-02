@@ -5,6 +5,7 @@ import axios from '../axios'
 import 'react-notifications/lib/notifications.css';
 import {NotificationContainer, NotificationManager} from 'react-notifications';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {CSSTransition, TransitionGroup} from 'react-transition-group';
 function Note(props) {
     const [showmax] = useState(false);
     const [like, setlike] = useState(false);
@@ -51,7 +52,9 @@ seteditTitle(e.target.value)
     
   return (
       <>
-      <NotificationContainer/>
+      
+      
+      
       <div className="Note p-2" style={props.imp ? {borderTop: "3px solid #dc3545", borderBottom: "3px solid #dc3545"} : null}>
       <div className="Note__max-width p-1">
       {edit ? <>
@@ -99,8 +102,7 @@ Important
           <button type="button" className="btn btn-secondary" onClick={()=>{props.onDelete(props._id)}}>Delete</button></>}
       </div>
   </div>
-
-        
+  
     
     </>
   );

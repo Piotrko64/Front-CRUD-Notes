@@ -2,7 +2,7 @@ import '../styles/Note.scss';
 import Note from './Note';
 import 'react-notifications/lib/notifications.css';
 import {NotificationContainer, NotificationManager} from 'react-notifications';
-
+import {TransitionGroup, CSSTransition} from 'react-transition-group';
 
 import axios from '../axios';
 function Notes({notesEx,setnotesEx}) {
@@ -51,7 +51,14 @@ axios.put('/notes/'+_id,{title, body, important});
     <NotificationContainer/>
     
     { notesEx.length!==0 ? 
-        notesEx.map((note,index)=>(
+        <TransitionGroup className="content">{notesEx.map((note)=>(
+            <CSSTransition
+            in={true}
+        appear={true}
+        key={note._id}
+      timeout={500}
+      classNames="show"
+            >
             <Note
             title={note.title}
             body={note.body}
@@ -62,15 +69,20 @@ axios.put('/notes/'+_id,{title, body, important});
             imp={note.important}
             onDelete={(_id)=> deleteNote(_id)}
             onEdit={(_id, title, body, important)=>editNewNote(_id, title, body, important)}
-            
-            
             />
-        )) : <div style={{color: "white", textAlign:"center", fontSize:"2em"}}>Please wait!
+            </CSSTransition>
+        )) }</TransitionGroup> : <CSSTransition
+        in={true}
+        appear={true}
+    timeout={500}
+  classNames="show"
+        ><div style={{color: "white", textAlign:"center", fontSize:"2em"}}>Please wait!
         <br/>
         or
         <br/>
         <button className="btn btn-secondary" onClick={()=>refresh()}>Refresh Website</button>
         </div>
+        </CSSTransition>
     }
     </>
   );

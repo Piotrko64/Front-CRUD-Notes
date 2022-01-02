@@ -9,7 +9,7 @@ function Header(props) {
     <div className="Title m-5">
       <div className="Title__main ">
       <h1>CRUD NOTE</h1>
-      <h6> v1.1.3</h6>
+      <h6> v1.2</h6>
       <h5>Front and Backend simple app by Piotrko64</h5>
       </div>
       <div className="Title__buttons mt-5">

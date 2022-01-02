@@ -5,8 +5,6 @@ import axios from './axios';
 import { useState, useEffect } from 'react';
 import {NotificationContainer, NotificationManager} from 'react-notifications';
 
-import './App.css';
-
 function App() {
 
 
