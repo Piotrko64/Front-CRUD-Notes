@@ -13,7 +13,7 @@ function NewNote({hideNewNote, addNewNote}) {
       <div className="newNote  form-group">
           <h1 className="p-2">New Note</h1>
 <label> Title: <br/>
-<input type="text" onChange={(e)=>{settitle(e.target.value)}} value={title}/>
+<input type="text" onChange={(e)=>{settitle(e.target.value)}} value={title} className="newNote__title"/>
 </label>
 <br/>
 <br/>
