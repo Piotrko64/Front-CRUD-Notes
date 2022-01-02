@@ -3,9 +3,9 @@ import {useState} from 'react';
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import axios from '../axios'
 import 'react-notifications/lib/notifications.css';
-import {NotificationContainer, NotificationManager} from 'react-notifications';
+import {NotificationManager} from 'react-notifications';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {CSSTransition, TransitionGroup} from 'react-transition-group';
+
 function Note(props) {
     const [showmax] = useState(false);
     const [like, setlike] = useState(false);
@@ -31,10 +31,7 @@ frontLike=frontLike+1
       else{
         frontLike=frontLike-1
       }
-       
-      
-  }
-    
+    }
     
     const [editTitle, seteditTitle] = useState(props.title);
     const funEditTitle=(e)=>{
@@ -53,9 +50,7 @@ seteditTitle(e.target.value)
   return (
       <>
       
-      
-      
-      <div className="Note p-2" style={props.imp ? {borderTop: "3px solid #dc3545", borderBottom: "3px solid #dc3545"} : null}>
+      <div className="Note p-2" style={props.imp ? {borderTop: "3px solid #dc3545", borderBottom: "3px solid #dc3545"} : {borderTop: "3px solid white", borderBottom: "3px solid white"}}>
       <div className="Note__max-width p-1">
       {edit ? <>
       <label> Title:  <br/>
@@ -70,7 +65,7 @@ seteditTitle(e.target.value)
 <br/>
 <label> 
 Important 
-<input type="checkbox"  checked={editImp} onChange={(e)=>funEditImp(e)}/> </label> <br/> <br/><button className="btn btn-success" onClick={(_id, title, body, important)=>{ 
+<input type="checkbox"  checked={editImp} onChange={(e)=>funEditImp(e)}/> </label> <br/> <br/><button className="btn btn-success" onClick={(_id)=>{ 
   if(editTitle.length>5 && editBody.length>10){
     props.onEdit(props._id, editTitle, editBody, editImp); setedit(false)
   }

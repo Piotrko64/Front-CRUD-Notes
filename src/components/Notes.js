@@ -50,14 +50,13 @@ axios.put('/notes/'+_id,{title, body, important});
     
     <NotificationContainer/>
     
-    { notesEx.length!==0 ? 
+    {notesEx.length!==0 ? 
         <TransitionGroup className="content">{notesEx.map((note)=>(
             <CSSTransition
             in={true}
-        appear={true}
-        key={note._id}
-      timeout={500}
-      classNames="show"
+            key={note._id}
+            timeout={300}
+            classNames="show"
             >
             <Note
             title={note.title}
@@ -71,18 +70,14 @@ axios.put('/notes/'+_id,{title, body, important});
             onEdit={(_id, title, body, important)=>editNewNote(_id, title, body, important)}
             />
             </CSSTransition>
-        )) }</TransitionGroup> : <CSSTransition
-        in={true}
-        appear={true}
-    timeout={500}
-  classNames="show"
-        ><div style={{color: "white", textAlign:"center", fontSize:"2em"}}>Please wait!
+        )) }
+        </TransitionGroup> : <div style={{color: "white", textAlign:"center", fontSize:"2em"}}>Please wait!
         <br/>
         or
         <br/>
         <button className="btn btn-secondary" onClick={()=>refresh()}>Refresh Website</button>
         </div>
-        </CSSTransition>
+        
     }
     </>
   );
