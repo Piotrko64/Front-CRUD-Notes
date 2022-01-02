@@ -7,7 +7,9 @@ import {NotificationContainer, NotificationManager} from 'react-notifications';
 import axios from '../axios';
 function Notes({notesEx,setnotesEx}) {
     
-    // const [notes, setnotes] = useState(notesEx);
+    const refresh=()=>{
+        window.location.reload(true);
+    }
     async function deleteNote(_id){
        
         await axios.delete('/notes/'+_id);
@@ -18,28 +20,10 @@ function Notes({notesEx,setnotesEx}) {
 
     async function editNewNote(_id, title, body, important){
         console.log(title.length, 'color:red');
-        // if(title.length<=5 && body.length<=10){
-        //     NotificationManager.error('are too short', 'Title and Content');
-        //     return
-            
-            
-        // }
-        // if(title.length<=5){
-        //     NotificationManager.error('is too short', 'Title');
-        //     return
-            
-            
-        // }
-        // if(title.length<=10){
-        //     NotificationManager.error('is too short', 'Content ');
-        //     return
-            
-            
-        // }
-        // edit back
+        
 axios.put('/notes/'+_id,{title, body, important});
         // edit front
-        console.log(_id, title, body, important);
+        
         const copyNotes=[...notesEx];
         const editNote=copyNotes.findIndex(copy=>copy._id===_id);
         const editNewNote = {
@@ -63,18 +47,7 @@ axios.put('/notes/'+_id,{title, body, important});
   return (
       
       <>
-    {/* <div className="Note p-2">
-        <div className="Note__max-width">
-            <h2 className="p-1">title</h2>
-            <p className="p-1"> 
-            Voluptate elit proident dolor elit commodo officia. Nulla nostrud officia mollit aliqua labore. Ipsum incididunt pariatur consectetur aliquip reprehenderit velit tempor dolore culpa elit magna cillum enim veniam. Consectetur et elit aliquip aute mollit culpa amet anim cillum. Exercitation cupidatat commodo commodo nostrud velit officia magna nostrud ipsum ex cillum exercitation. Incididunt veniam ut qui eu veniam. Dolore reprehenderit exercitation duis veniam minim. Sunt ex tempor sit consequat laborum occaecat est fugiat tempor duis laborum.
-            </p>
-            <button type="button" class="btn btn-primary">Like</button>
-            <button type="button" class="btn btn-warning">Comment</button>
-            <button type="button" class="btn btn-info">Edit</button>
-            <button type="button" class="btn btn-secondary">Delete</button>
-        </div>
-    </div> */}
+    
     <NotificationContainer/>
     
     { notesEx.length!==0 ? 
@@ -92,7 +65,12 @@ axios.put('/notes/'+_id,{title, body, important});
             
             
             />
-        )) : <div style={{color: "white", textAlign:"center", fontSize:"2em"}}>Please wait!</div>
+        )) : <div style={{color: "white", textAlign:"center", fontSize:"2em"}}>Please wait!
+        <br/>
+        or
+        <br/>
+        <button className="btn btn-secondary" onClick={()=>refresh()}>Refresh Website</button>
+        </div>
     }
     </>
   );
