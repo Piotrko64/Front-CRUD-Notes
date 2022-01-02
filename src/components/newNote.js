@@ -18,13 +18,13 @@ function NewNote({hideNewNote, addNewNote}) {
 <br/>
 <br/>
 <label> Content: <br/>
-<textarea onChange={(e)=>setcontent(e.target.value)} value={content}/>
+<textarea onChange={(e)=>setcontent(e.target.value)} value={content} className="newNote__content"/>
 </label>
 <br/>
 <br/>
 <label> 
 Important
-<input type="checkbox" onClick={()=>{setcheck(!check); console.log(check)}} value={check}/>
+<input type="checkbox" onClick={()=>{setcheck(!check); console.log(check)}} value={check} className="newNote__imp"/>
 
 </label><br/>{validation ? <span className="spanValidation">title and content must not be too short</span> : null }<br/>
 <button className="btn btn-warning newNote__add" onClick={()=>{ if(title.length>2 && content.length>5){addNewNote({
