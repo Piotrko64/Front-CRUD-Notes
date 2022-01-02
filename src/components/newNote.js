@@ -27,7 +27,7 @@ Important
 <input type="checkbox" onClick={()=>{setcheck(!check); console.log(check)}} value={check}/>
 
 </label><br/>{validation ? <span className="spanValidation">title and content must not be too short</span> : null }<br/>
-<button className="btn btn-warning newNote__add" onClick={()=>{ if(title.length>3 && content.length>6){addNewNote({
+<button className="btn btn-warning newNote__add" onClick={()=>{ if(title.length>2 && content.length>5){addNewNote({
   
   title: title,
   body: content,

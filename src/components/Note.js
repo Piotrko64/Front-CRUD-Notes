@@ -66,16 +66,16 @@ seteditTitle(e.target.value)
 <label> 
 Important 
 <input type="checkbox"  checked={editImp} onChange={(e)=>funEditImp(e)}/> </label> <br/> <br/><button className="btn btn-success" onClick={(_id)=>{ 
-  if(editTitle.length>5 && editBody.length>10){
+  if(editTitle.length>2 && editBody.length>5){
     props.onEdit(props._id, editTitle, editBody, editImp); setedit(false)
   }
-  else if(editTitle.length<=5 && editBody.length<=10){
+  else if(editTitle.length<=2 && editBody.length<=5){
     NotificationManager.error('are too short', 'Title and Content');
   }
-  else if(editTitle.length<=5){
+  else if(editTitle.length<=2){
     NotificationManager.warning('is too short', 'Title');
   }
-  else if(editBody.length<=10){
+  else if(editBody.length<=5){
     NotificationManager.warning('is too short', 'Content');
   }
   else{
