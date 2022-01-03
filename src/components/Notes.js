@@ -1,15 +1,34 @@
+import { useState, useEffect } from 'react';
 import '../styles/Note.scss';
 import Note from './Note';
 import 'react-notifications/lib/notifications.css';
 import {NotificationContainer, NotificationManager} from 'react-notifications';
 import {TransitionGroup, CSSTransition} from 'react-transition-group';
-
 import axios from '../axios';
 function Notes({notesEx,setnotesEx}) {
+    // Pagination
+ const [slice, useslice] = useState(0);
+ const [pages, usepages] = useState([]);
+ const changeSlice=(e)=>{
+useslice(e);
+window.scroll(0,0);
+ }
+ useEffect(()=>{
+const amount = Math.ceil(notesEx.length/6);
+const spareArray = []
+for(let am=1; am<=amount;  am++){
+    spareArray.push(am)
+    usepages(spareArray)
     
+}
+ },[notesEx])
+
+
+    // REFRESH
     const refresh=()=>{
         window.location.reload(true);
     }
+    // DELETE
     async function deleteNote(_id){
        
         await axios.delete('/notes/'+_id);
@@ -17,7 +36,7 @@ function Notes({notesEx,setnotesEx}) {
        NotificationManager.info('', 'Note is delete');
        
     }
-
+    //EDIT 
     async function editNewNote(_id, title, body, important){
         console.log(title.length, 'color:red');
         
@@ -35,15 +54,10 @@ axios.put('/notes/'+_id,{title, body, important});
             comment: copyNotes[editNote].comment
         };
         copyNotes[editNote]=editNewNote;
-        console.log(copyNotes)
         setnotesEx(copyNotes)
         }
-
+        
     
-
-    
-
-
   return (
       
       <>
@@ -51,7 +65,7 @@ axios.put('/notes/'+_id,{title, body, important});
     <NotificationContainer/>
     
     {notesEx.length!==0 ? 
-        <TransitionGroup className="content">{notesEx.map((note)=>(
+        <TransitionGroup className="content">{notesEx.slice((slice*6), (slice*6)+6).map((note)=>(
             <CSSTransition
             in={true}
             key={note._id}
@@ -79,6 +93,10 @@ axios.put('/notes/'+_id,{title, body, important});
         </div>
         
     }
+    <div className="pages">
+        {pages.map(s=> <button key={s} className="btn btn-primary" style={s-1===slice ? {transform: "scale(1.2)", background: "#1a51e7"} : {transform: "scale(1)"}} onClick={()=>{changeSlice(s-1)}}>{s}</button>)
+}
+    </div>
     </>
   );
 }

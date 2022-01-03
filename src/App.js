@@ -27,7 +27,7 @@ async function fetchNotes(){
 
 useEffect(() => {
   fetchNotes();
-  setInterval(() =>{fetchNotes()}, 10000)
+  setInterval(() =>{fetchNotes()}, 100)
 },[notesEx.length]);
 
 
