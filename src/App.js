@@ -27,7 +27,7 @@ async function fetchNotes(){
 
 useEffect(() => {
   fetchNotes();
-  setInterval(() =>{fetchNotes()}, 100)
+  setInterval(() =>{fetchNotes()}, 400)
 },[notesEx.length]);
 
 
@@ -39,13 +39,12 @@ const hideNewNote=()=>{
 }
 async function addNewNote(ob){
   // add to BACK
-  console.log(ob);
+  setIsNewNote(false);
   const goodOB={title: ob.title, body: ob.body, important: ob.important}
   const res = await axios.post(`/notes/`,goodOB);
   const newNote = res.data;
   // add to FRONT
   setnotesEx([newNote,...notesEx]);
-  setIsNewNote(false);
   NotificationManager.success('', 'Note is add');
 
 

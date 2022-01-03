@@ -10,7 +10,7 @@ function Header(props) {
       <div className="Title__main ">
       <h1>CRUD NOTE</h1>
       <h6> v1.5.1</h6>
-      <h5>Front and Backend simple app by Piotrko64</h5>
+      <h5>Front and Backend simple app by Piotrko64(Front-Flex)</h5>
       </div>
       <div className="Title__buttons mt-5">
           <button className="btn btn-outline-primary" onClick={()=>{props.showNewNote()}}> <div className="textmargin">New Note</div>  <div className="btn__icon"><BsFillPlusSquareFill/></div></button>
