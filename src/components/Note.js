@@ -113,10 +113,9 @@ function Note(props) {
                         </>
                     ) : (
                         <>
-                            <h2 className="">{props.title}</h2>
-                            <p className="">
-                                <div style={showmax ? { maxHeight: "none" } : null}>
-                                    {" "}
+                            <h2>{props.title}</h2>
+                            <p className="Note__body">
+                                <div>
                                     <ReactMarkdown>{props.body}</ReactMarkdown>
                                     {/* {!showmax && props.body.length>120 ? '...' : ''} */}
                                 </div>

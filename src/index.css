@@ -1,53 +1,54 @@
+html {
+    overflow-x: hidden;
+}
 body {
-background-image: url('./media/images/dark_wood.png');
-background-position:center;
-background-repeat: no-repeat;
-background-attachment: fixed;
-background-size: cover;
-overflow-x: hidden;
+    background-image: url("./media/images/dark_wood.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    overflow-x: hidden;
 }
 
 /* CSS TRANSITION GROUP */
 /* appear */
-.show-appear{
+.show-appear {
     transform: translateX(-100%);
 }
-.show-appear-done{
+.show-appear-done {
     transform: translateX(0);
 }
 /* enter */
-.show-enter{
+.show-enter {
     transform: translateX(-100%);
 }
-.show-enter-done{
+.show-enter-done {
     transform: translateX(0);
     transition: all 500ms ease;
 }
 /* exit */
-.show-exit{
+.show-exit {
     transform: translateX(0);
     transition: all 500ms ease;
 }
-.show-exit-active{
+.show-exit-active {
     transform: translateX(100%);
     transition: all 500ms ease;
 }
-.show-exit-done{
+.show-exit-done {
     transform: translateX(100%);
 }
 /* Pagination */
-.pages{
+.pages {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 50px;
-    margin-bottom: 30px
-    }
-.pages button{
-    
-    transition: all .2s ease-in-out;
+    margin-bottom: 30px;
+}
+.pages button {
+    transition: all 0.2s ease-in-out;
     color: white;
     font-size: 1.2em;
-        margin: 15px;
-    
+    margin: 15px;
 }

@@ -1,57 +1,69 @@
-.Note{
+.Note {
     background-color: white;
     width: 100%;
-    background-image: url('../media/images/lined_paper.png');
+    background-image: url("../media/images/lined_paper.png");
     margin-bottom: 40px;
-    .Note__max-width{
+    .Note__max-width {
         max-width: 800px;
         margin-left: auto;
         margin-right: auto;
-        .inputEdit{
+        position: relative;
+        .inputEdit {
             max-width: 800px;
             width: 80vw;
             min-width: 300px;
-            
         }
-        h2{
+        h2 {
             background: rgba(255, 255, 255, 0.671);
             border-radius: 5px;
         }
-        span{
-            
+        span {
             font-weight: 700;
             border-radius: 5px;
             background: rgba(11, 75, 117, 0.308);
-            color:red;
+            color: red;
             cursor: pointer;
             margin-bottom: 15px;
         }
-        p{
+        p {
             text-align: justify;
             background: rgba(255, 255, 255, 0.671);
             border-radius: 5px;
-            
-            div{
+
+            div {
                 margin-top: 15px;
                 margin-bottom: 15px;
                 max-height: none;
                 overflow: hidden;
-                transition: all .3s ease-in-out;
+                transition: all 0.3s ease-in-out;
             }
         }
-        .Note__like{
+        .Note__like {
             min-width: 90px;
         }
-        button{
+        button {
             font-weight: 500;
             margin-right: 15px;
-            
-            svg{
+
+            svg {
                 transform: translateY(-1px);
                 margin-right: 5px;
             }
-            
+        }
+
+        img {
+            object-fit: cover;
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            max-width: 600px;
+        }
+
+        textarea {
+            min-height: 100px;
         }
     }
-    
 }
