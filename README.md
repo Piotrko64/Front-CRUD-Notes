@@ -1,4 +1,4 @@
-# FRONTEND FOR CRUD NOTES
+# (FRONTEND FOR CRUD NOTES)[https://piotrkocrud64.netlify.app]
 
 Simple blog / notebook with options:
 - Create a new note,
